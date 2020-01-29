@@ -5,6 +5,7 @@ class LandingPage extends React.Component {
 	render() {
 		return (
 			<main className="landing-page">
+			
 			</main>
 		)
 	}
