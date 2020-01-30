@@ -3,16 +3,19 @@ import './App.css';
 import  LandingPage  from './LandingPage/LandingPage';
 
 
+
 interface State {
 	hawk: string;
 	error: string;
+	direction: string;
 	}
 
 
 class App extends React.Component {
 	state = { 
 		hawk: 'hawkone',
-		error: ''
+		error: '',
+		direction: 'home'
 	};
 
 componentDidMount () {
