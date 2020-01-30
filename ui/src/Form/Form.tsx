@@ -5,7 +5,9 @@ class Form extends React.Component {
 	render() {
 		return (
 			<form>
-				<h2>Create Bird Sighting</h2>
+				<div className="title-holder"> 
+					<h2>Create Bird Sighting</h2>
+				</div>
 				<label>Name</label>
 				<input />
 				<label>Size</label>
@@ -14,7 +16,7 @@ class Form extends React.Component {
 				<input />
 				<label>Description</label>
 				<input /> 
-				<button>Save</button>
+				<button className="submit-btn">Save</button>
 			</form>
 			)
 	}

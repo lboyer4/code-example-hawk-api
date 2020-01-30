@@ -2,6 +2,10 @@ a {
   color: #00B9B3;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
 	background-color: #9B786F;
 }
@@ -11,8 +15,7 @@ body {
 	background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
-  height: 90vh;
+  height: 95vh;
   justify-content: center;
   margin: 0;
   position: relative;
