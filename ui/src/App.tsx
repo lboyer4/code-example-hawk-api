@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import  LandingPage  from './LandingPage/LandingPage';
+import Form from './Form/Form';
 
 
 
@@ -37,6 +38,7 @@ render() {
       		<button className="view-birds-btn"> View Birds</button>
       	</div>
       </header>
+      	<Form /> 
       	<LandingPage />
 		</div>    
   );
