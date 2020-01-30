@@ -6,61 +6,6 @@ body {
 	background-color: #9B786F;
 }
 
-header {
-	background-color: #9B786F;
-	color: #fff;
-	font-family: Zilla Slab;
-	height: 80px;
-	display: flex;
-	flex-grow: 2;
-}
-
-h1 {
-	font-family: Zilla Slab;
-	font-style: normal;
-	font-weight: normal;
-	margin: 0;
-	padding: 20px 0 20px 30px;
-	flex-grow: 10;
-}
-
-.eye {
-	font-family: Zilla Slab;
-	font-style: normal;
-	font-weight: bold;
-}
-
-.btn-holder {
-	flex-grow: 1;
-	margin: 0;
-	padding: 20px 0 20px 50px;
-}
-
-button {
-	color: #fff;
-	font-family: Zilla Slab;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 25px;
-	height: 30px;
-	background-color: #9B786F;
-	border: 0;
-}
-
-button:hover {
-	cursor: pointer;
-	color: #faed26;
-}
-
-.divide {
-	color: #fff;
-	font-family: Zilla Slab;
-	font-style: normal;
-	font-weight: normal;
-	font-size: 25px;
-	height: 30px;
-}
-
 .landing-page {
 	background-image: url('https://images.unsplash.com/photo-1544680238-e0704024dc9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2251&q=80');
 	background-position: center top;

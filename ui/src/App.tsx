@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-import  LandingPage  from './LandingPage/LandingPage';
 import Form from './Form/Form';
+import Header from './Header/Header';
 
 
 
@@ -27,19 +27,16 @@ componentDidMount () {
 		.catch(error => (console.log('error', error)))
 }
 render() {
+	//conditionally render form if direction is 'form'
+	//conditionally render table if direction is 'table'
+	//conditionally render home page if direction is 'home'
+
 
   return (
     <div>
-    	<header>
-      	<h1>Hawk<span className="eye">Eye</span></h1>
-      	<div className="btn-holder">
-      		<button className="add-bird-btn">Add A Bird</button>
-      		<span className="divide"> | </span>
-      		<button className="view-birds-btn"> View Birds</button>
-      	</div>
-      </header>
+    		<Header />
       	<main className="landing-page">
-      		<Form /> 
+      		<Form />
 				</main>
       	
 		</div>    

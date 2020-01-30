@@ -14,6 +14,7 @@ class Form extends React.Component {
 				<input />
 				<label>Description</label>
 				<input /> 
+				<button>Save</button>
 			</form>
 			)
 	}
