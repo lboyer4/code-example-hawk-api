@@ -38,8 +38,10 @@ render() {
       		<button className="view-birds-btn"> View Birds</button>
       	</div>
       </header>
-      	<Form /> 
-      	<LandingPage />
+      	<main className="landing-page">
+      		<Form /> 
+				</main>
+      	
 		</div>    
   );
 }

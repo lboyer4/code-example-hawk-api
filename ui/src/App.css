@@ -61,3 +61,17 @@ button:hover {
 	height: 30px;
 }
 
+.landing-page {
+	background-image: url('https://images.unsplash.com/photo-1544680238-e0704024dc9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2251&q=80');
+	background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 90vh;
+  justify-content: center;
+  margin: 0;
+  position: relative;
+  width: 100vw;
+  box-shadow: inset 0px 4px 21px rgba(0, 0, 0, 0.25);
+}
+
