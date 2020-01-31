@@ -35,6 +35,13 @@ label {
 	margin-top: 5px;
 }
 
+select {
+	height: 30px;
+	width: 350px;
+	margin: 5px 0;
+	border-radius: 2px;
+}
+
 .submit-btn {
 	width: 120px;
 	margin: auto;

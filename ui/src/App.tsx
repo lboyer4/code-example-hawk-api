@@ -3,30 +3,34 @@ import './App.css';
 import Form from './Form/Form';
 import Header from './Header/Header';
 
-
-
 interface State {
-	hawk: string;
 	error: string;
 	direction: string;
+	hawks: []
 	}
 
 
 class App extends React.Component {
 	state = { 
-		hawk: 'hawkone',
 		error: '',
-		direction: 'home'
+		direction: 'home',
+		birds: []
 	};
 
 componentDidMount () {
-	console.log('hello', this.state.hawk)
 	fetch('http://localhost:8000/api/hawk/list')
 		.then(response => response.json())
 		.then(response => console.log('response', response))
 		.catch(error => (console.log('error', error)))
 }
+
+// addBird = (bird: object) => {
+// 	const newBird = bird;
+// 	const birds = [...this.state.birds, newBird]
+// 	this.setState({ birds })
+// }
 render() {
+
 	//conditionally render form if direction is 'form'
 	//conditionally render table if direction is 'table'
 	//conditionally render home page if direction is 'home'

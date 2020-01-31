@@ -7,6 +7,11 @@ interface State {
 	gender: string;
 	description: string;
 }
+
+// interface Props {
+// 	addBird: (bird: object) => Array<object>;
+// }
+
 class Form extends React.Component {
 	state = {
 		name: '',
@@ -19,8 +24,12 @@ class Form extends React.Component {
 		const { name, value } = e.target;
     this.setState({[name]: value}) 
 	}
-	//handleChange function
-	//handles the change of an input
+
+	// handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
+	// 	e.preventDefault();
+	// 	console.log('props')
+
+	// }
 
 	//handleSubmit function
 	//posts to the backend 
@@ -46,12 +55,11 @@ class Form extends React.Component {
           placeholder='Enter Size'
           name='size'/>
 				<label>Gender</label>
-				<input 
-					type="text"
-          onChange={this.handleChange}
-          value={this.state.gender}
-          placeholder='Enter Gender'
-          name='gender'/>
+				<select>
+					<option value="FEMALE">Female</option>
+					<option value="MALE">Male</option>
+				</select> 
+				
 				<label>Description</label>
 				<input 
 					type="text"
