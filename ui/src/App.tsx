@@ -31,6 +31,11 @@ componentDidMount () {
 // 	const birds = [...this.state.birds, newBird]
 // 	this.setState({ birds })
 // }
+
+updateView = (view: string) => {
+ this.setState({ direction: view})
+}
+
 render() {
 let currentView; 
 let formView = <Form />
@@ -46,7 +51,7 @@ let formView = <Form />
 
   return (
     <div>
-    		<Header />
+    		<Header updateView={this.updateView} />
       	<main className="landing-page">
       		{currentView}
 				</main>
