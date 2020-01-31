@@ -13,7 +13,7 @@ interface State {
 class App extends React.Component {
 	state = { 
 		error: '',
-		direction: 'form',
+		direction: '',
 		birds: []
 	};
 
@@ -22,7 +22,7 @@ componentDidMount () {
 		method: "GET",
 	})
 	.then(response => response.json())
-	.then(response => console.log('response is here', response))
+	.then(response => this.setState({ birds: response.hawks}))
 		.catch(error => (console.log('error', error)))
 }
 
