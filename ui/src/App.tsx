@@ -41,9 +41,6 @@ render() {
 let currentView; 
 let formView = <Form />
 let tableView = <Table />
-	//conditionally render form if direction is 'form'
-	//conditionally render table if direction is 'table'
-	//conditionally render home page if direction is 'home'
 
 	if (this.state.direction === "form" ) {
 		currentView = formView
