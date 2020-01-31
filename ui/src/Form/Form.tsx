@@ -8,6 +8,7 @@ interface State {
 	colorDescription: string;
 	behaviorDescription: string;
 	habitatDescription: string;
+	confirmMessage: string;
 }
 
 // interface Props {
@@ -23,7 +24,8 @@ class Form extends React.Component {
 		gender: '',
 		colorDescription: '',
 		behaviorDescription: '',
-		habitatDescription: ''
+		habitatDescription: '',
+		confirmMessage: ''
 	}
 
 	handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,29 +50,29 @@ class Form extends React.Component {
 	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		console.log(this.state)
-		let postCall = {
-            "in": "body",
-            "name": "special",
-            "description": "hawk",
-            "gender": "MALE",
-            "size": "SMALL",
-            "colorDescription": "yellowish gold",
-            "behaviorDescription": "bold",
-            "habitatDescription": "outside",
-            "pictureUrl": "url.blah"
+	// 	let postCall = {
+ //            "in": "body",
+ //            "name": "special",
+ //            "description": "hawk",
+ //            "gender": "MALE",
+ //            "size": "SMALL",
+ //            "colorDescription": "yellowish gold",
+ //            "behaviorDescription": "bold",
+ //            "habitatDescription": "outside",
+ //            "pictureUrl": "url.blah"
             
-          }
+ //          }
 
-	fetch("http://localhost:8000/api/hawk", {
-	  method: "POST",
-	  headers: {
-	    'Content-Type': 'application/json',
-	  },
-	  body: JSON.stringify(postCall)
-		})
-	.then( (response) => { 
-   console.log('response', response)
-	});
+	// fetch("http://localhost:8000/api/hawk", {
+	//   method: "POST",
+	//   headers: {
+	//     'Content-Type': 'application/json',
+	//   },
+	//   body: JSON.stringify(postCall)
+	// 	})
+	// .then( (response) => { 
+ //   console.log('response', response)
+	// });
 	}
 
 	render() {

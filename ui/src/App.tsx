@@ -13,7 +13,7 @@ interface State {
 class App extends React.Component {
 	state = { 
 		error: '',
-		direction: 'home',
+		direction: 'form',
 		birds: []
 	};
 
@@ -32,17 +32,23 @@ componentDidMount () {
 // 	this.setState({ birds })
 // }
 render() {
-
+let currentView; 
+let formView = <Form />
 	//conditionally render form if direction is 'form'
 	//conditionally render table if direction is 'table'
 	//conditionally render home page if direction is 'home'
 
+	if (this.state.direction === "form" ) {
+		currentView = formView
+	} else if (this.state.direction === "home") {
+		let currentView = ''
+	}
 
   return (
     <div>
     		<Header />
       	<main className="landing-page">
-      		<Form />
+      		{currentView}
 				</main>
       	
 		</div>    
