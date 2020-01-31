@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Form from './Form/Form';
 import Header from './Header/Header';
+import Table from './Table/Table';
 
 interface State {
 	error: string;
@@ -39,14 +40,17 @@ updateView = (view: string) => {
 render() {
 let currentView; 
 let formView = <Form />
+let tableView = <Table />
 	//conditionally render form if direction is 'form'
 	//conditionally render table if direction is 'table'
 	//conditionally render home page if direction is 'home'
 
 	if (this.state.direction === "form" ) {
 		currentView = formView
-	} else if (this.state.direction === "home") {
-		let currentView = ''
+	} else if (this.state.direction === "table") {
+		currentView = tableView
+	} else {
+		currentView = ''
 	}
 
   return (
