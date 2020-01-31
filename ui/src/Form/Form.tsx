@@ -31,6 +31,11 @@ class Form extends React.Component {
     this.setState({[name]: value}) 
 	}
 
+	handleDropDown = (e: React.ChangeEvent<HTMLSelectElement>) => {
+		const { name, value } = e.target;
+    this.setState({[name]: value})
+	}
+
 	// handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
 	// 	e.preventDefault();
 	// 	console.log('props')
@@ -40,9 +45,38 @@ class Form extends React.Component {
 	//handleSubmit function
 	//posts to the backend 
 
+	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+		e.preventDefault();
+		console.log(this.state)
+		let postCall = {
+            "in": "body",
+            "name": "special",
+            "description": "hawk",
+            "gender": "MALE",
+            "size": "SMALL",
+            "colorDescription": "yellowish gold",
+            "behaviorDescription": "bold",
+            "habitatDescription": "outside",
+            "pictureUrl": "url.blah"
+            
+          }
+
+	fetch("http://localhost:8000/api/hawk", {
+	  method: "POST",
+	  headers: {
+	    'Content-Type': 'application/json',
+	  },
+	  body: JSON.stringify(postCall)
+		})
+	.then( (response) => { 
+   console.log('response', response)
+	});
+	}
+
 	render() {
 		return (
-			<form>
+			<form
+				onSubmit={this.handleSubmit}>
 				<div className="title-holder"> 
 					<h2>Create Bird Sighting</h2>
 				</div>
@@ -54,13 +88,19 @@ class Form extends React.Component {
           placeholder='Enter Name'
           name='name' />
 				<label>Size</label>
-				<select>
+				<select
+					name='size'
+					onChange={this.handleDropDown}>
+					<option value="">Pick A Size</option>
 					<option value="SMALL">Small</option>
 					<option value="MEDIUM">Medium</option>
 					<option value="LARGE">Large</option>
 				</select> 
 				<label>Gender</label>
-				<select>
+				<select
+					name='gender'
+					onChange={this.handleDropDown}>
+					<option value="">Pick A Gender</option>
 					<option value="FEMALE">Female</option>
 					<option value="MALE">Male</option>
 				</select> 
@@ -70,21 +110,21 @@ class Form extends React.Component {
           onChange={this.handleChange}
           value={this.state.colorDescription}
           placeholder='Enter Description'
-          name='description'/> 
+          name='colorDescription'/> 
          <label>Bird Behavior</label>
 				<input 
 					type="text"
           onChange={this.handleChange}
           value={this.state.behaviorDescription}
           placeholder='Enter Description'
-          name='description'/> 
+          name='behaviorDescription'/> 
         <label>Bird Habitat</label>
 				<input 
 					type="text"
           onChange={this.handleChange}
           value={this.state.habitatDescription}
           placeholder='Enter Description'
-          name='description'/> 
+          name='habitatDescription'/> 
 				<button className="submit-btn">
 					Save
 				</button>

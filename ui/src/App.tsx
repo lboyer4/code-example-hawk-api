@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
 import Form from './Form/Form';
 import Header from './Header/Header';
@@ -18,9 +18,11 @@ class App extends React.Component {
 	};
 
 componentDidMount () {
-	fetch('http://localhost:8000/api/hawk/list')
-		.then(response => response.json())
-		.then(response => console.log('response', response))
+	fetch("http://localhost:8000/api/hawk/list", {
+		method: "GET",
+	})
+	.then(response => response.json())
+	.then(response => console.log('response is here', response))
 		.catch(error => (console.log('error', error)))
 }
 
