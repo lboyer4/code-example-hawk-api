@@ -19,9 +19,7 @@ class App extends React.Component {
 	};
 
 componentDidMount () {
-	fetch("http://localhost:8000/api/hawk/list", {
-		method: "GET",
-	})
+	fetch("http://localhost:8000/api/hawk/list")
 	.then(response => response.json())
 	.then(response => this.setState({ birds: response.hawks}))
 		.catch(error => (console.log('error', error)))
@@ -40,7 +38,7 @@ updateView = (view: string) => {
 render() {
 let currentView; 
 let formView = <Form />
-let tableView = <Table />
+let tableView = <Table birds={this.state.birds}/>
 
 	if (this.state.direction === "form" ) {
 		currentView = formView
