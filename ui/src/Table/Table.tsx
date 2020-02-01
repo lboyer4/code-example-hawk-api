@@ -14,13 +14,18 @@ class Table extends React.Component<TableProps> {
 			<BirdDetails {...bird} key={bird.id}/>))
 
 		return(
-			<div>
+			<div className="table-container">
+				<div className="table-header">
+					<h3>Bird Log</h3>
+					<input className="search-bar" placeholder="Search bird log..."/>
+				</div>
 				<table>
 					<thead>
 					<tr>
-						<td>Name</td>
-						<td>Size</td>
-						<td>Gender</td>
+						<td className="table-label">Name</td>
+						<td className="table-label">Size</td>
+						<td className="table-label">Gender</td>
+						<td className="table-label"> View Details </td>
 					</tr>
 					</thead>
 					<tbody>

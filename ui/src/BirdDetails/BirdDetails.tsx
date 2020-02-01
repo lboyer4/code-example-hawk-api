@@ -21,6 +21,10 @@ class BirdDetails extends React.Component<BirdProps>{
 				<td>{name}</td>
 				<td>{size}</td>
 				<td>{gender}</td>
+				<td>
+					<button className="view-details-btn"> > 
+					</button>
+				</td>
 			</tr>
 			)
 	}
