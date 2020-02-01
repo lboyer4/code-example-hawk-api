@@ -18,14 +18,12 @@ class Header extends React.Component<HeaderProps, HeaderState> {
       }
 
       handleView = (e: React.MouseEvent<HTMLButtonElement>) => {
-            console.log('here is the button', e.currentTarget.getAttribute('value'))
-            let newView = e.currentTarget.getAttribute('value')
+           let newView = e.currentTarget.getAttribute('value')
            this.setState({ view: e.currentTarget.getAttribute('value')})
            if (newView != null) {
             this.props.updateView(newView)
             this.setState({ view: newView})
            }
-            console.log('here is the view', this.state.view)
       }
 
 	render() {

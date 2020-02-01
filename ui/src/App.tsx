@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Form from './Form/Form';
 import Header from './Header/Header';
+import Table from './Table/Table';
 
 interface State {
 	error: string;
@@ -18,9 +19,7 @@ class App extends React.Component {
 	};
 
 componentDidMount () {
-	fetch("http://localhost:8000/api/hawk/list", {
-		method: "GET",
-	})
+	fetch("http://localhost:8000/api/hawk/list")
 	.then(response => response.json())
 	.then(response => this.setState({ birds: response.hawks}))
 		.catch(error => (console.log('error', error)))
@@ -39,14 +38,14 @@ updateView = (view: string) => {
 render() {
 let currentView; 
 let formView = <Form />
-	//conditionally render form if direction is 'form'
-	//conditionally render table if direction is 'table'
-	//conditionally render home page if direction is 'home'
+let tableView = <Table birds={this.state.birds}/>
 
 	if (this.state.direction === "form" ) {
 		currentView = formView
-	} else if (this.state.direction === "home") {
-		let currentView = ''
+	} else if (this.state.direction === "table") {
+		currentView = tableView
+	} else {
+		currentView = ''
 	}
 
   return (
