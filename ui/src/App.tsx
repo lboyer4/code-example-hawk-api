@@ -1,40 +1,61 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './App.css';
-import  LandingPage  from './LandingPage/LandingPage';
-
+import Form from './Form/Form';
+import Header from './Header/Header';
 
 interface State {
-	hawk: string;
 	error: string;
+	direction: string;
+	hawks: []
 	}
 
 
 class App extends React.Component {
 	state = { 
-		hawk: 'hawkone',
-		error: ''
+		error: '',
+		direction: '',
+		birds: []
 	};
 
 componentDidMount () {
-	console.log('hello', this.state.hawk)
-	fetch('http://localhost:8000/api/hawk/list')
-		.then(response => response.json())
-		.then(response => console.log('response', response))
+	fetch("http://localhost:8000/api/hawk/list", {
+		method: "GET",
+	})
+	.then(response => response.json())
+	.then(response => this.setState({ birds: response.hawks}))
 		.catch(error => (console.log('error', error)))
 }
+
+// addBird = (bird: object) => {
+// 	const newBird = bird;
+// 	const birds = [...this.state.birds, newBird]
+// 	this.setState({ birds })
+// }
+
+updateView = (view: string) => {
+ this.setState({ direction: view})
+}
+
 render() {
+let currentView; 
+let formView = <Form />
+	//conditionally render form if direction is 'form'
+	//conditionally render table if direction is 'table'
+	//conditionally render home page if direction is 'home'
+
+	if (this.state.direction === "form" ) {
+		currentView = formView
+	} else if (this.state.direction === "home") {
+		let currentView = ''
+	}
 
   return (
     <div>
-    	<header>
-      	<h1>Hawk<span className="eye">Eye</span></h1>
-      	<div className="btn-holder">
-      		<button className="add-bird-btn">Add A Bird</button>
-      		<span className="divide"> | </span>
-      		<button className="view-birds-btn"> View Birds</button>
-      	</div>
-      </header>
-      	<LandingPage />
+    		<Header updateView={this.updateView} />
+      	<main className="landing-page">
+      		{currentView}
+				</main>
+      	
 		</div>    
   );
 }
