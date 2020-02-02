@@ -1,19 +1,57 @@
 import React from 'react';
-import BirdDetails from '../BirdDetails/BirdDetails';
+import Bird from '../Bird/Bird';
+import { BirdDetails } from '../BirdDetails/BirdDetails';
 import './Table.css';
 
 interface TableProps {
 	birds: any;
 }
 
-class Table extends React.Component<TableProps> {
+interface TableState {
+	details: boolean;
+	id: number;
+	bird: any;
+}
+
+class Table extends React.Component<TableProps, TableState> {
+	constructor(props: TableProps) {
+		super(props);
+		this.state = {
+			details: false,
+			id: 0,
+			bird: null
+		}
+	}
+
+	showDetails = (id: number, toggle: boolean) => {
+		this.setState( { details: toggle })
+		if (toggle === true) {
+			this.setState({ id })
+			this.findTheBird(id)
+		} else {
+			this.setState({ id: 0, bird: {}})
+		}
+	}
+
+	findTheBird = (id: number) => {
+		let bird = this.props.birds.find((bird: any) => bird.id === id) 
+			this.setState({ bird })
+		}
 
 	render() {
-		console.log('here are birds', this.props.birds)
 		const displayBirds = this.props.birds.map((bird: any) => (
-			<BirdDetails {...bird} key={bird.id}/>))
+			<Bird {...bird} showDetails={this.showDetails} key={bird.id}/>))
 
-		return(
+		let asideView;
+		let currentBird;
+		
+		if (this.state.details === true) {
+			currentBird = this.state.bird
+			asideView = <BirdDetails {...currentBird} />
+			}
+		
+		return (
+			<section className="table-details-section">
 			<div className="table-container">
 				<div className="table-header">
 					<h3>Bird Log</h3>
@@ -33,6 +71,8 @@ class Table extends React.Component<TableProps> {
 					</tbody>
 				</table>
 			</div>
+			{asideView}
+			</section>
 		)
 	}
 }
