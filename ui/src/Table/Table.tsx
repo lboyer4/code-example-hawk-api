@@ -1,5 +1,6 @@
 import React from 'react';
 import Bird from '../Bird/Bird';
+import { BirdDetails } from '../BirdDetails/BirdDetails';
 import './Table.css';
 
 interface TableProps {
@@ -42,15 +43,14 @@ class Table extends React.Component<TableProps, TableState> {
 			<Bird {...bird} showDetails={this.showDetails} key={bird.id}/>))
 
 		let asideView;
+		let currentBird;
 		
 		if (this.state.details === true) {
-			asideView = 
-			<aside>
-				<p>Name: {this.state.bird.name}</p>
-			</aside>
-		}
-
-		return(
+			currentBird = this.state.bird
+			asideView = <BirdDetails {...currentBird} />
+			}
+		
+		return (
 			<section className="table-details-section">
 			<div className="table-container">
 				<div className="table-header">
