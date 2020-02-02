@@ -1,5 +1,5 @@
 import React from 'react';
-import './BirdDetails.css';
+import './Bird.css';
 
 interface BirdProps {
 	bird: any;
@@ -14,7 +14,7 @@ interface BirdState {
 	viewDetails: boolean;
 }
 
-class BirdDetails extends React.Component<BirdProps, BirdState>{
+class Bird extends React.Component<BirdProps, BirdState>{
 	constructor(props: BirdProps){
 		super(props);
 		this.state = {
@@ -45,4 +45,4 @@ class BirdDetails extends React.Component<BirdProps, BirdState>{
 	}
 }
 
-export default BirdDetails;
+export default Bird;

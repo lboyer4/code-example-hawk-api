@@ -1,5 +1,5 @@
 import React from 'react';
-import BirdDetails from '../BirdDetails/BirdDetails';
+import Bird from '../Bird/Bird';
 import './Table.css';
 
 interface TableProps {
@@ -39,7 +39,7 @@ class Table extends React.Component<TableProps, TableState> {
 
 	render() {
 		const displayBirds = this.props.birds.map((bird: any) => (
-			<BirdDetails {...bird} showDetails={this.showDetails} key={bird.id}/>))
+			<Bird {...bird} showDetails={this.showDetails} key={bird.id}/>))
 
 		let asideView;
 		
