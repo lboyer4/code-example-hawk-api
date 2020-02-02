@@ -10,21 +10,21 @@ interface HeaderState {
 }
 
 class Header extends React.Component<HeaderProps, HeaderState> {
-      constructor(props: HeaderProps){
-            super(props);
-            this.state = {
-                  view: ''
-            }
-      }
+  constructor(props: HeaderProps){
+    super(props);
+    this.state = {
+      view: ''
+    }
+  }
 
-      handleView = (e: React.MouseEvent<HTMLButtonElement>) => {
-           let newView = e.currentTarget.getAttribute('value')
-           this.setState({ view: e.currentTarget.getAttribute('value')})
-           if (newView != null) {
-            this.props.updateView(newView)
-            this.setState({ view: newView})
-           }
-      }
+  handleView = (e: React.MouseEvent<HTMLButtonElement>) => {
+   let newView = e.currentTarget.getAttribute('value')
+   this.setState({ view: e.currentTarget.getAttribute('value')})
+   if (newView != null) {
+    this.props.updateView(newView)
+    this.setState({ view: newView})
+   }
+  }
 
 	render() {
 		return (

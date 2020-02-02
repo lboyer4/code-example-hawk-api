@@ -7,7 +7,7 @@ import Table from './Table/Table';
 interface State {
 	error: string;
 	direction: string;
-	hawks: []
+	birds: []
 	}
 
 
