@@ -1,0 +1,26 @@
+.detail-card {
+	margin: 80px 0 60px 15vh;
+	width: 500px;
+	height: 500px;
+	background: rgba(152, 136, 138, 0.9);
+	border-radius: 2px;
+	padding: 30px;
+	color: #46344E;
+	overflow: auto;
+}
+
+.details-header {
+	border-bottom: 1px solid #46344E;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+.description-word {
+	font-size: 25px;
+	font-weight: bold;
+	color: #FAED26;
+}
+
+h5 {
+	font-size: 20px;
+}

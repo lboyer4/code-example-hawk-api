@@ -18,32 +18,32 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   }
 
   handleView = (e: React.MouseEvent<HTMLButtonElement>) => {
-   let newView = e.currentTarget.getAttribute('value')
-   this.setState({ view: e.currentTarget.getAttribute('value')})
-   if (newView != null) {
-    this.props.updateView(newView)
-    this.setState({ view: newView})
-   }
+    let newView = e.currentTarget.getAttribute('value');
+    this.setState({ view: e.currentTarget.getAttribute('value')});
+    if (newView != null) {
+      this.props.updateView(newView);
+      this.setState({ view: newView});
+    }
   }
 
 	render() {
 		return (
-	        <header>
-      	    <h1>Hawk<span className="eye">Eye</span></h1>
-      	    <div className="btn-holder">
+	    <header>
+      	<h1>Hawk<span className="eye">Eye</span></h1>
+      	<div className="btn-holder">
       		<button 
-                        onClick={this.handleView}
-                        value="form" 
-                        className="add-bird-btn">
-                        Add A Bird
-                  </button>
+            onClick={this.handleView}
+            value="form" 
+            className="add-bird-btn">
+            Add A Bird
+          </button>
       		<span className="divide"> | </span>
       		<button 
-                        onClick={this.handleView}
-                        value="table" 
-                        className="view-birds-btn"> 
-                        View Birds
-                   </button>
+            onClick={this.handleView}
+            value="table" 
+            className="view-birds-btn"> 
+            View Birds
+          </button>
       	</div>
       </header>
 		)

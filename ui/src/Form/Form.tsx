@@ -11,12 +11,6 @@ interface State {
 	confirmMessage: string;
 }
 
-// interface Props {
-// 	addBird: (bird: object) => Array<object>;
-// }
-
-
-
 class Form extends React.Component {
 	state = {
 		name: '',
@@ -38,42 +32,39 @@ class Form extends React.Component {
     this.setState({[name]: value})
 	}
 
-	// handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
-	// 	e.preventDefault();
-	// 	console.log('props')
-
-	// }
-
-	//handleSubmit function
-	//posts to the backend 
-
 	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log(this.state)
-	// 	let postCall = {
- //            "in": "body",
- //            "name": "special",
- //            "description": "hawk",
- //            "gender": "MALE",
- //            "size": "SMALL",
- //            "colorDescription": "yellowish gold",
- //            "behaviorDescription": "bold",
- //            "habitatDescription": "outside",
- //            "pictureUrl": "url.blah"
-            
- //          }
+		let postCall = {...this.state, in: "hawk-body", pictureUrl: "not.applicable"};
 
-	// fetch("http://localhost:8000/api/hawk", {
-	//   method: "POST",
-	//   headers: {
-	//     'Content-Type': 'application/json',
-	//   },
-	//   body: JSON.stringify(postCall)
-	// 	})
-	// .then( (response) => { 
- //   console.log('response', response)
-	// });
+		fetch("http://localhost:8000/api/hawk", {
+		  method: "POST",
+		  headers: {
+		    'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify(postCall)
+			})
+		.then((response) => response.json())
+		.then(response => this.confirmMessage(response))
+		.catch(error => console.log(error));
 	}
+
+	confirmMessage = (response: any) => {
+		if (response.status === 200) {
+			this.setState({ confirmMessage: "Your bird has been saved! :)"})
+		} else {
+			this.setState({ confirmMessage: "*Your bird could not be saved, please make sure you've filled out all the fields"})
+		}
+		this.setState({
+			name: '',
+			size: '',
+			gender: '',
+			colorDescription: '',
+			behaviorDescription: '',
+			habitatDescription: ''
+		});
+	}
+
+
 
 	render() {
 		return (
@@ -130,6 +121,7 @@ class Form extends React.Component {
 				<button className="submit-btn">
 					Save
 				</button>
+				<p className="click-message">{this.state.confirmMessage}</p>
 			</form>
 			)
 	}
