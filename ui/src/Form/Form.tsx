@@ -15,8 +15,6 @@ interface State {
 // 	addBird: (bird: object) => Array<object>;
 // }
 
-
-
 class Form extends React.Component {
 	state = {
 		name: '',
@@ -38,41 +36,25 @@ class Form extends React.Component {
     this.setState({[name]: value})
 	}
 
-	// handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
-	// 	e.preventDefault();
-	// 	console.log('props')
-
-	// }
 
 	//handleSubmit function
 	//posts to the backend 
 
 	handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
-		console.log(this.state)
-	// 	let postCall = {
- //            "in": "body",
- //            "name": "special",
- //            "description": "hawk",
- //            "gender": "MALE",
- //            "size": "SMALL",
- //            "colorDescription": "yellowish gold",
- //            "behaviorDescription": "bold",
- //            "habitatDescription": "outside",
- //            "pictureUrl": "url.blah"
-            
- //          }
+		
+		let postCall = {...this.state, in: "hawk-body", pictureUrl: "not.applicable"}
 
-	// fetch("http://localhost:8000/api/hawk", {
-	//   method: "POST",
-	//   headers: {
-	//     'Content-Type': 'application/json',
-	//   },
-	//   body: JSON.stringify(postCall)
-	// 	})
-	// .then( (response) => { 
- //   console.log('response', response)
-	// });
+		fetch("http://localhost:8000/api/hawk", {
+		  method: "POST",
+		  headers: {
+		    'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify(postCall)
+			})
+		.then( (response) => { 
+	   console.log('response', response)
+		});
 	}
 
 	render() {

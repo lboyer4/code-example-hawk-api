@@ -15,22 +15,7 @@ class App extends React.Component {
 	state = { 
 		error: '',
 		direction: '',
-		birds: [{
-			id: 1,
-			name: "hawk",
-			gender: "MALE",
-			size: "SMALL",
-			wingspanBegin: 0,
-			wingspanEnd: 0,
-			weightBegin: 0,
-			weightEnd: 0,
-			lengthBegin: 0,
-			lengthEnd: 0,
-			colorDescription: "yellow",
-			behaviorDescription: "bold",
-			habitatDescription: "outside",
-			pictureUrl: "url.blah"
-			}]
+		birds: []
 	};
 
 componentDidMount () {
