@@ -7,23 +7,21 @@ import Table from './Table/Table';
 interface State {
 	error: string;
 	direction: string;
-	birds: []
 	}
 
 
 class App extends React.Component {
 	state = { 
 		error: '',
-		direction: '',
-		birds: []
+		direction: ''
 	};
 
-componentDidMount () {
-	fetch("http://localhost:8000/api/hawk/list")
-	.then(response => response.json())
-	.then(response => this.setState({ birds: response.hawks}))
-		.catch(error => (console.log('error', error)))
-}
+// componentDidMount () {
+// 	fetch("http://localhost:8000/api/hawk/list")
+// 	.then(response => response.json())
+// 	.then(response => this.setState({ birds: response.hawks}))
+// 		.catch(error => (console.log('error', error)))
+// }
 
 // addBird = (bird: object) => {
 // 	const newBird = bird;
@@ -38,7 +36,7 @@ updateView = (view: string) => {
 render() {
 let currentView; 
 let formView = <Form />
-let tableView = <Table birds={this.state.birds}/>
+let tableView = <Table />
 
 	if (this.state.direction === "form" ) {
 		currentView = formView

@@ -3,36 +3,52 @@ import Bird from '../Bird/Bird';
 import { BirdDetails } from '../BirdDetails/BirdDetails';
 import './Table.css';
 
-interface TableProps {
-	birds: any;
-}
 
-interface TableState {
+interface State {
 	id: number;
 	bird: any;
+	birds: [];
 }
 
-class Table extends React.Component<TableProps, TableState> {
-	constructor(props: TableProps) {
-		super(props);
-		this.state = {
+class Table extends React.Component {
+		state = {
 			id: 0,
-			bird: null
+			bird: {	id: 0,
+				name: '',
+				gender: '',
+				size: '',
+				wingspanBegin: 0,
+				wingspanEnd: 0,
+				weightBegin: 0,
+				weightEnd: 0,
+				lengthBegin: 0,
+				lengthEnd: 0,
+				colorDescription: '',
+				behaviorDescription: '',
+				habitatDescription: '',
+				pictureUrl: '',},
+			birds: []
 		}
-	}
+
+	componentDidMount () {
+	fetch("http://localhost:8000/api/hawk/list")
+	.then(response => response.json())
+	.then(response => this.setState({ birds: response.hawks}))
+		.catch(error => (console.log('error', error)))
+}
 
 	showDetails = (id: number) => {
 		this.findTheBird(id)
 	}
 
 	findTheBird = (id: number) => {
-		let bird = this.props.birds.find((bird: any) => bird.id === id) 
+		let bird = this.state.birds.find((bird: any) => bird.id === id) 
 			this.setState( { id })
 			this.setState({ bird })
 		}
 
 	render() {
-		const displayBirds = this.props.birds.map((bird: any) => (
+		const displayBirds = this.state.birds.map((bird: any) => (
 			<Bird {...bird} showDetails={this.showDetails} key={bird.id}/>))
 
 		let asideView;
