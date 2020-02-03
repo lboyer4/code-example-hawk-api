@@ -2,7 +2,7 @@
 	position: absolute;
 	margin: 80px 0 60px 15vh;
 	width: 700px;
-	height: 550px;
+	min-height: 550px;
 	background: rgba(152, 136, 138, 0.7);
 	border: 1px solid #46344E;
 	border-radius: 2px;
@@ -10,6 +10,7 @@
 	flex-direction: column;
 	padding: 20px;
 	color: #46344E;
+	
 }
 
 .table-header {
