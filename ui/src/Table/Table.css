@@ -5,10 +5,9 @@
 
 .table-container {
 	margin: 80px 0 60px 15vh;
-	width: 700px;
+	width: 650px;
 	min-height: 550px;
 	background: rgba(152, 136, 138, 0.7);
-	border: 1px solid #46344E;
 	border-radius: 2px;
 	display: flex;
 	flex-direction: column;
@@ -30,16 +29,18 @@ h3 {
 }
 
 .search-bar {
-	margin-left: 150px;
+	margin-left: 100px;
 }
 
-thead {
+th {
 	color: #FAED26;
+	font-size: 20px;
+	background-color: #46344E;
 }
 
 table, tr, td{
 	border-collapse: collapse;
-	border: 1px solid #fff;
+	border: 1px solid #46344E;
 	padding: 20px;
 }
 
@@ -49,10 +50,25 @@ table {
 
 tr {
 	height: 50px;
+	padding: 5px;
+	font-weight: bold;
 }
 
 .table-label {
 	font-family: Zilla Slab;
 	font-style: normal;
 	font-weight: bold;
+}
+
+.name {
+	width: 320px;
+}
+
+.size, .gender {
+	width: 250px;
+}
+
+.view-details {
+	width: 40px;
+	padding: auto;
 }

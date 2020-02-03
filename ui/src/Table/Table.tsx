@@ -59,7 +59,7 @@ class Table extends React.Component {
 			currentBird = this.state.bird;
 			asideView = <BirdDetails {...currentBird} />
 		}
-		
+
 		return (
 			<section className="table-details-section">
 				<div className="table-container">
@@ -69,11 +69,11 @@ class Table extends React.Component {
 					</div>
 					<table>
 						<thead>
-						<tr>
-							<td className="table-label">Name</td>
-							<td className="table-label">Size</td>
-							<td className="table-label">Gender</td>
-							<td className="table-label"> View Details </td>
+						<tr className="table-headers">
+							<th className="table-label name">Name</th>
+							<th className="table-label size">Size</th>
+							<th className="table-label gender">Gender</th>
+							<th className="table-label view-details"> Learn More </th>
 						</tr>
 						</thead>
 						<tbody>

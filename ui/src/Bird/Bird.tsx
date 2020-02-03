@@ -11,9 +11,6 @@ interface BirdProps {
 }
 
 class Bird extends React.Component<BirdProps>{
-	constructor(props: BirdProps){
-		super(props);
-	}
 
 	handleDetailsClick = (e: React.MouseEvent<HTMLButtonElement>) => {
 		this.props.showDetails(this.props.id);
@@ -24,10 +21,10 @@ class Bird extends React.Component<BirdProps>{
 
 		return (
 			<tr>
-				<td>{name}</td>
-				<td>{size}</td>
-				<td>{gender}</td>
-				<td>
+				<td className="name">{name}</td>
+				<td className="size">{size}</td>
+				<td className="gender">{gender}</td>
+				<td className="view-details">
 					<button onClick={this.handleDetailsClick} className="view-details-btn"> >
 					</button>
 				</td>
