@@ -1,5 +1,9 @@
+.table-details-section {
+	display: flex;
+	flex-grow: 2;
+}
+
 .table-container {
-	position: absolute;
 	margin: 80px 0 60px 15vh;
 	width: 700px;
 	min-height: 550px;
@@ -10,7 +14,6 @@
 	flex-direction: column;
 	padding: 20px;
 	color: #46344E;
-	
 }
 
 .table-header {

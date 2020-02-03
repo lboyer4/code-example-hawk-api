@@ -20,13 +20,30 @@ interface BirdDetailProps {
 
 export const BirdDetails: React.FC<BirdDetailProps> = (props: BirdDetailProps) => {
 	return (
-		<aside>
-		<h3>{props.name}</h3>
-		<h4>Size:</h4><h5>{props.size}</h5>
-		<h4>Gender:</h4><h5>{props.gender}</h5>
-		<h4>Color:</h4><h5>{props.colorDescription}</h5>
-		<h4>Habitat:</h4><h5>{props.habitatDescription}</h5>
-		<h4>Behavior:</h4><h5>{props.behaviorDescription}</h5>
-	</aside>
+		<div className="detail-card">
+		<h3 className="details-header">{props.name}</h3>
+		<h5>
+			<span className="description-word">
+				Size: </span>
+			{props.size}
+		</h5>
+		<h5>
+			<span className="description-word">Gender: 	</span>
+			{props.gender}
+		</h5>
+		<h5>
+			<span className="description-word">Color: </span>
+			{props.colorDescription}
+		</h5>
+		<h5>
+			<span className="description-word">
+				Habitat: </span>
+			 {props.habitatDescription}
+		</h5>
+		<h5>
+			<span className="description-word">Behavior: </span>
+			 {props.behaviorDescription}
+		</h5>
+	</div>
 	)
 }
