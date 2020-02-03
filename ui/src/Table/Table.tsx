@@ -29,7 +29,7 @@ class Table extends React.Component {
 		habitatDescription: '',
 		pictureUrl: ''},
 		birds: [],
-		error: ''
+		error: '',
 	}
 
 	componentDidMount () {
@@ -60,6 +60,12 @@ class Table extends React.Component {
 			asideView = <BirdDetails {...currentBird} />
 		}
 
+		let noBirdMessage;
+
+		if (!this.state.birds.length) {
+			noBirdMessage = "You have no birds saved yet"
+		}
+
 		return (
 			<section className="table-details-section">
 				<div className="table-container">
@@ -80,6 +86,7 @@ class Table extends React.Component {
 							{displayBirds}
 						</tbody>
 					</table>
+					{noBirdMessage}
 				</div>
 				{asideView}
 			</section>
