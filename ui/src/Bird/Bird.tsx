@@ -29,15 +29,22 @@ class Bird extends React.Component<BirdProps, BirdState>{
 	}
 
 	render() {
-		const { name, id, size, gender } = this.props
-		
+		const { name, size, gender } = this.props
+		let buttonText;
+
+		if (this.state.viewDetails) {
+			buttonText = ' < ';
+		} else {
+			buttonText = ' > ';
+		}
+
 		return (
 			<tr>
 				<td>{name}</td>
 				<td>{size}</td>
 				<td>{gender}</td>
 				<td>
-					<button onClick={this.handleDetailsClick} className="view-details-btn"> > 
+					<button onClick={this.handleDetailsClick} className="view-details-btn">{buttonText} 
 					</button>
 				</td>
 			</tr>
