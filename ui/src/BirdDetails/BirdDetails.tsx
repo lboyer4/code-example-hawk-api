@@ -19,7 +19,6 @@ interface BirdDetailProps {
 }
 
 export const BirdDetails: React.FC<BirdDetailProps> = (props: BirdDetailProps) => {
-console.log('props in details', props.name)
 	return (
 		<aside>
 		<h3>{props.name}</h3>
@@ -31,5 +30,3 @@ console.log('props in details', props.name)
 	</aside>
 	)
 }
-	
-	

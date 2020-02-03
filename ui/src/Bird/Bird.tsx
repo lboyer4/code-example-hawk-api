@@ -10,26 +10,17 @@ interface BirdProps {
 	showDetails: (id: number) => void;
 }
 
-interface BirdState {
-	viewDetails: boolean;
-}
-
-class Bird extends React.Component<BirdProps, BirdState>{
+class Bird extends React.Component<BirdProps>{
 	constructor(props: BirdProps){
 		super(props);
-		this.state = {
-			viewDetails: false
-		}
 	}
 
 	handleDetailsClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-		let toggle = !this.state.viewDetails
-		this.setState( {viewDetails: toggle})
-		this.props.showDetails(this.props.id)
+		this.props.showDetails(this.props.id);
 	}
 
 	render() {
-		const { name, size, gender } = this.props
+		const { name, size, gender } = this.props;
 
 		return (
 			<tr>
@@ -41,7 +32,7 @@ class Bird extends React.Component<BirdProps, BirdState>{
 					</button>
 				</td>
 			</tr>
-			)
+		)
 	}
 }
 
