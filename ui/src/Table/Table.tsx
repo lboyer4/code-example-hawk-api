@@ -9,6 +9,7 @@ interface State {
 	bird: any;
 	birds: [];
 	error: string;
+	filter: string;
 }
 
 class Table extends React.Component {
@@ -30,13 +31,18 @@ class Table extends React.Component {
 		pictureUrl: ''},
 		birds: [],
 		error: '',
+		filter: ''
 	}
 
 	componentDidMount () {
-	fetch("http://localhost:8000/api/hawk/list")
-	.then(response => response.json())
-	.then(response => this.setState({ birds: response.hawks}))
-	.catch(error => (this.setState({ error })))
+		this.fetchAllBirds()
+	}
+
+	fetchAllBirds = () => {
+		fetch("http://localhost:8000/api/hawk/list")
+		.then(response => response.json())
+		.then(response => this.setState({ birds: response.hawks}))
+		.catch(error => (this.setState({ error })))
 	}
 
 	showDetails = (id: number) => {
@@ -47,6 +53,19 @@ class Table extends React.Component {
 		let bird = this.state.birds.find((bird: any) => bird.id === id) 
 		this.setState( { id });
 		this.setState({ bird });
+	}
+
+	filterBirds = (e: React.ChangeEvent<HTMLInputElement>) => {
+		let input = e.target.value
+		if (input === '') {
+			this.fetchAllBirds();
+		} else {
+			let matched = this.state.birds.filter((bird: any) => {
+				return bird.name.toLowerCase().includes(input.toLowerCase())
+			})
+			this.setState({ birds: matched })
+		}
+		this.setState({ filter: input })
 	}
 
 	render() {
@@ -71,7 +90,11 @@ class Table extends React.Component {
 				<div className="table-container">
 					<div className="table-header">
 						<h3>Bird Log</h3>
-						<input className="search-bar" placeholder="Search bird log..."/>
+						<input 
+							className="search-bar" 
+							placeholder="Search birds..."
+							value={this.state.filter}
+							onChange={this.filterBirds}/>
 					</div>
 					<table>
 						<thead>
