@@ -8,7 +8,6 @@ interface TableProps {
 }
 
 interface TableState {
-	details: boolean;
 	id: number;
 	bird: any;
 }
@@ -17,24 +16,18 @@ class Table extends React.Component<TableProps, TableState> {
 	constructor(props: TableProps) {
 		super(props);
 		this.state = {
-			details: false,
 			id: 0,
 			bird: null
 		}
 	}
 
-	showDetails = (id: number, toggle: boolean) => {
-		this.setState( { details: toggle })
-		if (toggle === true) {
-			this.setState({ id })
-			this.findTheBird(id)
-		} else {
-			this.setState({ id: 0, bird: {}})
-		}
+	showDetails = (id: number) => {
+		this.findTheBird(id)
 	}
 
 	findTheBird = (id: number) => {
 		let bird = this.props.birds.find((bird: any) => bird.id === id) 
+			this.setState( { id })
 			this.setState({ bird })
 		}
 
@@ -45,7 +38,7 @@ class Table extends React.Component<TableProps, TableState> {
 		let asideView;
 		let currentBird;
 		
-		if (this.state.details === true) {
+		if (this.state.id > 0) {
 			currentBird = this.state.bird
 			asideView = <BirdDetails {...currentBird} />
 			}
